@@ -119,5 +119,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d758b3ab21b18d49a659ea5881f4353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _standartColor: {r: 0.06666667, g: 0.7921569, b: 0.019607844, a: 0}
-  _hoverColor: {r: 0.9339623, g: 0.10044494, b: 0.10044494, a: 0}
+  _standartColor: {r: 0.03681021, g: 0.8867924, b: 0.14881958, a: 0}
+  _hoverColor: {r: 0.9433962, g: 0.0391598, b: 0.0391598, a: 0}
