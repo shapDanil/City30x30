@@ -20,6 +20,6 @@ public class GridGenerator: MonoBehaviour
                 var cell = Instantiate(_cell, position, Quaternion.Euler(90,0,0), _parent);
                 cell.name = $"Cell({x},{y})";
             }
-       
     }
+    
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -12,6 +10,6 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         Vector3 direction = Input.GetAxisRaw("Horizontal") * Vector3.right + Input.GetAxisRaw("Vertical") * Vector3.forward; 
-        _cameraTransform.transform.Translate(direction * (_speed + 666) * Time.deltaTime, Space.World);
+        _cameraTransform.transform.Translate(direction * _speed * Time.deltaTime, Space.World);
     }
 }
