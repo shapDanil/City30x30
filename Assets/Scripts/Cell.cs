@@ -7,15 +7,26 @@ public class Cell : MonoBehaviour
     [SerializeField] private Color _hoverColor;
     private MeshRenderer _meshRenderer;
     private bool _isEmpty;
+    private static bool _isBuildModeEnable;
     public static event UnityAction<GameObject> OnMouseDowned;
     private void Start()
     {
         _isEmpty = true;
+        _isBuildModeEnable = false;
         _meshRenderer = GetComponent<MeshRenderer>();
+    }
+
+    private void OnEnable()
+    {
+        ShopUI.OnBuildingChose += EnableBuildMode;
+    }
+    private void OnDisable()
+    {
+        ShopUI.OnBuildingChose -= EnableBuildMode;
     }
     private void ChangeColor(Color color)
     {
-        if(_isEmpty)
+        if(_isEmpty && _isBuildModeEnable)
             _meshRenderer.material.color = color;
     }
     private void OnMouseEnter()
@@ -28,12 +39,15 @@ public class Cell : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (_isEmpty)
+        if (_isEmpty && _isBuildModeEnable)
         {
-            OnMouseDowned?.Invoke(gameObject);
             _isEmpty = false;
+            _isBuildModeEnable = false;
+            OnMouseDowned?.Invoke(gameObject);   
         }
-            
     }
-  
+    private void EnableBuildMode(GameObject gameObject)
+    {
+        _isBuildModeEnable = true;
+    }
 }
