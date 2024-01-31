@@ -7,7 +7,6 @@ public class ResourcesController : MonoBehaviour
     [SerializeField] private ResourcesView _view;
     [SerializeField] private ResourcesModel _model;
 
-    public static ResourcesController Instance { get => _instance;}
     public ResourcesView View { get => _view;}
 
     private void Awake()
@@ -22,11 +21,14 @@ public class ResourcesController : MonoBehaviour
     {
         if (_instance == null)
             _instance = new ResourcesController();
-        return Instance;
+        return _instance;
     }
     public void AddResources(ResourcesModel res)
     {
         _model.Add(res);
     }
-   
+    public bool Buy(Cost res)
+    {
+        return _model.Subtract(res);
+    }
 }

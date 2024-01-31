@@ -16,7 +16,7 @@ public class IndustrialBuilding : Building
     }
     public void Production()
     {
-        ResourcesController.Instance.AddResources(_income);
+        ResourcesController.GetInstance().AddResources(_income);
     }
 
    
