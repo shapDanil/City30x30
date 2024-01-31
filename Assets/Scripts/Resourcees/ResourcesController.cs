@@ -1,17 +1,18 @@
-using TMPro;
 using UnityEngine;
 
 public class ResourcesController : MonoBehaviour
 {
-    private static ResourcesController instance;
+    private static ResourcesController _instance;
    
     [SerializeField] private ResourcesView _view;
-    private ResourcesModel _model;
+    [SerializeField] private ResourcesModel _model;
+
+    public static ResourcesController Instance { get => _instance;}
+    public ResourcesView View { get => _view;}
 
     private void Awake()
     {
-        _model = new ResourcesModel(100,100,100,100);
-        _view.DrawAll(_model);
+        View.Draw(_model);
     }
     public ResourcesController()
     {
@@ -19,8 +20,13 @@ public class ResourcesController : MonoBehaviour
     }
     public static ResourcesController GetInstance()
     {
-        if (instance == null)
-            instance = new ResourcesController();
-        return instance;
+        if (_instance == null)
+            _instance = new ResourcesController();
+        return Instance;
     }
+    public void AddResources(ResourcesModel res)
+    {
+        _model.Add(res);
+    }
+   
 }

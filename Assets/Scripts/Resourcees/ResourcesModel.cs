@@ -1,48 +1,66 @@
 using System;
+using UnityEngine;
+
+[Serializable]
 public class ResourcesModel
 {
-    private int _wood;
-    private int _gold;
-    private int _food;
-    private int _steel;
+    [Header("Ресурсы:")]
+    [SerializeField, Min(0)] private uint _wood;
+    [SerializeField, Min(0)] private uint _gold;
+    [SerializeField, Min(0)] private uint _food;
+    [SerializeField, Min(0)] private uint _steel;
 
-    public ResourcesModel(int wood, int gold, int food, int steel)
+    [Header("Вместимость:")]
+    [SerializeField, Min(0)] private uint _woodCapacity;
+    [SerializeField, Min(0)] private uint _goldCapacity;
+    [SerializeField, Min(0)] private uint _foodCapacity;
+    [SerializeField, Min(0)] private uint _steelCapacity;
+    public ResourcesModel(uint wood, uint gold, uint food, uint steel)
     {
-        _food = food;
-        _wood= wood;
-        _gold = gold;
-        _steel = steel;
+        Food = food;
+        Wood = wood;
+        Gold = gold;
+        Steel = steel;
     }
+    public uint WoodCapacity { get => _woodCapacity; set => _wood = Math.Min(value, _woodCapacity); }
+    public uint GoldCapacity { get => _goldCapacity; set => _gold = Math.Min(value, _goldCapacity);  }
+    public uint FoodCapacity { get => _foodCapacity; set => _food = Math.Min(value, _foodCapacity); }
+    public uint SteelCapacity { get => _steelCapacity; set => _steel = Math.Min(value, _steelCapacity); }
 
-    public int Wood { get => _wood; set {
-            if (value < 0)
-                throw new Exception("Значение дерева меньше 0");
-            else
-                _wood = value;
-        }
+    public uint Wood { get => _wood; set => _wood = value; }
+    public uint Gold { get => _gold; set => _gold = value; }
+    public uint Food { get => _food; set => _food = value; }
+    public uint Steel { get => _steel; set => _steel = value; }
+
+    public void Add(ResourcesModel addModel)
+    {
+        Food += addModel.Food;
+        Wood += addModel.Wood;
+        Steel += addModel.Steel;
+        Gold += addModel.Gold;
+        ResourcesController.Instance.View.Draw(this);
     }
-    public int Gold { get => _gold; set
+    public void Subtract(ResourcesModel subModel)
+    {
+        if (Enough(subModel))
         {
-            if (value < 0)
-                throw new Exception("Значение золота меньше 0");
-            else
-                _gold = value;
+            Food -= subModel.Food;
+            Wood -= subModel.Wood;
+            Steel -= subModel.Steel;
+            Gold -= subModel.Gold;
+            ResourcesController.Instance.View.Draw(this);
         }
-    }
-    public int Food { get => _food; set
+        else
         {
-            if (value < 0)
-                throw new Exception("Значение еды меньше 0");
-            else
-                _food = value;
+            Debug.Log("Не хватает ресурсов!");
         }
     }
-    public int Steel { get => _steel; set
-        {
-            if (value < 0)
-                throw new Exception("Значение стали меньше 0");
-            else
-                _steel = value;
-        }
+    private bool Enough(ResourcesModel subModel)
+    {
+        if (subModel.Wood < _wood && subModel.Food < _food && subModel.Steel < _steel && subModel.Gold < _gold)
+            return true;
+        else
+            return false;
     }
+   
 }

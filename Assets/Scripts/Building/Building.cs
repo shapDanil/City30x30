@@ -2,11 +2,12 @@
 
 public abstract class Building : MonoBehaviour
 {
-    protected static float constructionTime;
-    protected static WaitForSeconds wait = new WaitForSeconds(constructionTime);
+    protected float constructionTime;
+    protected WaitForSeconds waitConstruction;
+    private ResourcesModel _cost;
 
-    public static WaitForSeconds GetWait()
+    public WaitForSeconds GetWaitConstruction()
     {
-        return wait;
+        return waitConstruction;
     }
 }

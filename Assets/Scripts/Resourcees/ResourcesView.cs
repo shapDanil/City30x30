@@ -1,15 +1,17 @@
 using TMPro;
+using System;
 using UnityEngine;
 
-public class ResourcesView : MonoBehaviour
+
+[Serializable]
+public class ResourcesView
 {
-    [Header("UI ресурсов:")]
     [SerializeField] private TextMeshProUGUI _textWood;
     [SerializeField] private TextMeshProUGUI _textGold;
     [SerializeField] private TextMeshProUGUI _textFood;
     [SerializeField] private TextMeshProUGUI _textSteel;
 
-    public void DrawAll(ResourcesModel res)
+    public void Draw(ResourcesModel res)
     {
         _textWood.text = res.Wood.ToString();
         _textFood.text = res.Food.ToString();

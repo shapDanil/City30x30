@@ -3,7 +3,6 @@ using System.Collections;
 
 public class BuildManager : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
     [SerializeField] private GameObject _currentTypeBuilding;
 
     private WaitForSeconds _wait;
