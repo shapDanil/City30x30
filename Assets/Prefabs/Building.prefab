@@ -45,6 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780591b6a8fd40c4f931af26f8833aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cost:
+    _wood: 5
+    _gold: 5
+    _food: 5
+    _steel: 0
 --- !u!1001 &8185713219249946003
 PrefabInstance:
   m_ObjectHideFlags: 0

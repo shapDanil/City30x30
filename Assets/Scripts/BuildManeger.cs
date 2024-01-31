@@ -23,7 +23,8 @@ public class BuildManager : MonoBehaviour
     }
     private void Build(GameObject cellGameObject)
     {
-        if(ResourcesController.GetInstance().Buy(cellGameObject.GetComponent<DecorativeBuilding>().GetCost()))
+        var temp = _currentTypeBuilding.GetComponent<IndustrialBuilding>();
+        if (ResourcesController.GetInstance().Buy(temp.GetCost()))
             StartCoroutine(StartConstruction(cellGameObject));
     }
 

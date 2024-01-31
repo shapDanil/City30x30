@@ -1395,10 +1395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0291a4ecb0f7e4d8a3844aedeaf400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textWood: {fileID: 0}
-  _textGold: {fileID: 0}
-  _textFood: {fileID: 0}
-  _textSteel: {fileID: 0}
 --- !u!1 &43023938
 GameObject:
   m_ObjectHideFlags: 0
@@ -30011,7 +30007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ae8dffb7ce24943b20f716b9cd510d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
   _currentTypeBuilding: {fileID: 2636673165322173857, guid: 5c83ec35d3afb664ca2fac2e4afd780d, type: 3}
 --- !u!114 &611555298
 MonoBehaviour:
@@ -30025,14 +30020,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e415cc9b7cba884fb0e12a1ab219f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textWood: {fileID: 621780054}
-  _textGold: {fileID: 1672051443}
-  _textFood: {fileID: 831143672}
-  _textSteel: {fileID: 1902016203}
-  _wood: 231
-  _gold: 12
-  _food: 2
-  _steel: 312
+  _view:
+    _textWood: {fileID: 621780054}
+    _textGold: {fileID: 1672051443}
+    _textFood: {fileID: 831143672}
+    _textSteel: {fileID: 1902016203}
+  _model:
+    _wood: 500
+    _gold: 500
+    _food: 500
+    _steel: 500
+    _woodCapacity: 1000
+    _goldCapacity: 1000
+    _foodCapacity: 1000
+    _steelCapacity: 1000
 --- !u!1 &613767028
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,15 +7,18 @@ public class ResourcesController : MonoBehaviour
     [SerializeField] private ResourcesView _view;
     [SerializeField] private ResourcesModel _model;
 
+   
     public ResourcesView View { get => _view;}
+    public ResourcesModel Model { get => _model; }
 
     private void Awake()
     {
-        View.Draw(_model);
+        View.Draw(Model);
+        _instance = this;
     }
     public ResourcesController()
     {
-
+        Debug.Log(Model);
     }
     public static ResourcesController GetInstance()
     {
@@ -25,10 +28,11 @@ public class ResourcesController : MonoBehaviour
     }
     public void AddResources(ResourcesModel res)
     {
-        _model.Add(res);
+        Model.Add(res);
     }
     public bool Buy(Cost res)
     {
-        return _model.Subtract(res);
+        Debug.Log(Model);
+        return Model.Subtract(res);
     }
 }
