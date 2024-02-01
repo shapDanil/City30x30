@@ -9,7 +9,7 @@ public class BuildManager : MonoBehaviour
 
     private void Awake()
     {
-        _wait = new WaitForSeconds(4f);
+        _wait = new WaitForSeconds(1f);
     }
     private void OnEnable()
     {
