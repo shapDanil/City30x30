@@ -48,6 +48,14 @@ public class ResourcesModel: Cost
             return false;
         }
     }
+    public void AddCapacity(Cost addCapacity)
+    {
+        FoodCapacity += addCapacity.Food;
+        WoodCapacity += addCapacity.Wood;
+        SteelCapacity += addCapacity.Steel;
+        GoldCapacity += addCapacity.Gold;
+        ResourcesController.GetInstance().View.Draw(this);
+    }
     private bool Enough(Cost subModel)
     {
         if (subModel.Wood < _wood && subModel.Food < _food && subModel.Steel < _steel && subModel.Gold < _gold)

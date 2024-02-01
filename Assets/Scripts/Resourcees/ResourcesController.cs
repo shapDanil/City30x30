@@ -26,9 +26,13 @@ public class ResourcesController : MonoBehaviour
             _instance = new ResourcesController();
         return _instance;
     }
-    public void AddResources(ResourcesModel res)
+    public void AddResources(Cost res)
     {
         Model.Add(res);
+    }
+    public void AddCapacity(Cost res)
+    {
+        Model.AddCapacity(res);
     }
     public bool Buy(Cost res)
     {
