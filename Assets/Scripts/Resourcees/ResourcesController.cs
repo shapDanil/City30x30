@@ -35,7 +35,6 @@ public class ResourcesController : MonoBehaviour
     }
     public bool Buy(Cost res)
     {
-        Debug.Log(Model);
         return Model.Subtract(res);
     }
 }

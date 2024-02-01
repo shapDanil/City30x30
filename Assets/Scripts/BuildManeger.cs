@@ -9,7 +9,7 @@ public class BuildManager : MonoBehaviour
 
     private void Awake()
     {
-        _wait = new WaitForSeconds(1f);
+        _wait = new WaitForSeconds(4f);
     }
     private void OnEnable()
     {
@@ -24,7 +24,7 @@ public class BuildManager : MonoBehaviour
     private void Build(GameObject cellGameObject)
     {
         if (ResourcesController.GetInstance().Buy(_currentTypeBuilding.GetCost()))
-            StartCoroutine(StartConstruction(cellGameObject));
+            StartCoroutine(StartConstruction(cellGameObject, _currentTypeBuilding));
     }
 
     public void SetCurrentTypeBuilding(Building gameObject)
@@ -33,10 +33,10 @@ public class BuildManager : MonoBehaviour
        // _wait = Building.GetWait();
     }
 
-    IEnumerator StartConstruction(GameObject cellGameObject)
+    IEnumerator StartConstruction(GameObject cellGameObject, Building currentTypeBuilding)
     {
         yield return _wait;
-        Instantiate(_currentTypeBuilding, cellGameObject.transform.position, Quaternion.identity, cellGameObject.transform);
+        Instantiate(currentTypeBuilding, cellGameObject.transform.position, Quaternion.identity, cellGameObject.transform);
     }
 
 }
