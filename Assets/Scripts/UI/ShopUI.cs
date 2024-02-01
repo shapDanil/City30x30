@@ -6,7 +6,7 @@ public class ShopUI : MonoBehaviour
 {
     [SerializeField] private GameObject _shopBuildingUI;
     public static event UnityAction OnBuildModeChanged;
-    public static event UnityAction<GameObject> OnBuildingChose;
+    public static event UnityAction<Building> OnBuildingChose;
 
     public void Close()
     {
@@ -18,7 +18,7 @@ public class ShopUI : MonoBehaviour
         _shopBuildingUI.SetActive(true);
         Time.timeScale = 0f;
     }
-    public void SelectBuilding(GameObject building)
+    public void SelectBuilding(Building building)
     {
         OnBuildingChose?.Invoke(building);
         Close();

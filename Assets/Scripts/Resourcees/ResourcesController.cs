@@ -18,7 +18,6 @@ public class ResourcesController : MonoBehaviour
     }
     public ResourcesController()
     {
-        Debug.Log(Model);
     }
     public static ResourcesController GetInstance()
     {

@@ -16,19 +16,19 @@ public class ResourcesModel: Cost
         Gold = gold;
         Steel = steel;
     }
-    public uint WoodCapacity { get => _woodCapacity; set => _wood = Math.Min(value, _woodCapacity); }
-    public uint GoldCapacity { get => _goldCapacity; set => _gold = Math.Min(value, _goldCapacity);  }
-    public uint FoodCapacity { get => _foodCapacity; set => _food = Math.Min(value, _foodCapacity); }
-    public uint SteelCapacity { get => _steelCapacity; set => _steel = Math.Min(value, _steelCapacity); }
+    public uint WoodCapacity { get => _woodCapacity; set => _woodCapacity = value;}
+    public uint GoldCapacity { get => _goldCapacity; set => _goldCapacity = value;}
+    public uint FoodCapacity { get => _foodCapacity; set => _foodCapacity = value;}
+    public uint SteelCapacity { get => _steelCapacity; set => _steelCapacity = value;}
 
 
 
     public void Add(Cost addModel)
     {
-        Food += addModel.Food;
-        Wood += addModel.Wood;
-        Steel += addModel.Steel;
-        Gold += addModel.Gold;
+        Food = Math.Min(addModel.Food + Food,FoodCapacity);
+        Wood = Math.Min(addModel.Wood + Wood, WoodCapacity);
+        Steel = Math.Min(addModel.Steel + Steel, SteelCapacity);
+        Gold = Math.Min(addModel.Gold + Gold, GoldCapacity);
         ResourcesController.GetInstance().View.Draw(this);
     }
     public bool Subtract(Cost subModel)
@@ -54,7 +54,6 @@ public class ResourcesModel: Cost
         WoodCapacity += addCapacity.Wood;
         SteelCapacity += addCapacity.Steel;
         GoldCapacity += addCapacity.Gold;
-        ResourcesController.GetInstance().View.Draw(this);
     }
     private bool Enough(Cost subModel)
     {

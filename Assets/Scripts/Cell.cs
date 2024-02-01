@@ -46,7 +46,7 @@ public class Cell : MonoBehaviour
             OnMouseDowned?.Invoke(gameObject);   
         }
     }
-    private void EnableBuildMode(GameObject gameObject)
+    private void EnableBuildMode(Building gameObject)
     {
         _isBuildModeEnable = true;
     }

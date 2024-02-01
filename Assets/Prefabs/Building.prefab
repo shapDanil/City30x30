@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cost:
-    _wood: 5
+    _wood: 100000
     _gold: 5
     _food: 5
     _steel: 0
