@@ -14,4 +14,5 @@ public abstract class Building : MonoBehaviour
     {
         return _cost;
     }
+
 }

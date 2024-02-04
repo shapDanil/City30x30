@@ -8,7 +8,7 @@ public class Cell : MonoBehaviour
     private MeshRenderer _meshRenderer;
     private bool _isEmpty;
     private static bool _isBuildModeEnable;
-    public static event UnityAction<GameObject> OnMouseDowned;
+    public static event UnityAction<GameObject> MouseDowned;
     private void Start()
     {
         _isEmpty = true;
@@ -43,7 +43,7 @@ public class Cell : MonoBehaviour
         {
             _isEmpty = false;
             _isBuildModeEnable = false;
-            OnMouseDowned?.Invoke(gameObject);   
+            MouseDowned?.Invoke(gameObject);   
         }
     }
     private void EnableBuildMode(Building gameObject)

@@ -396,6 +396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8707954346183981500}
   - component: {fileID: 8352810199425642254}
+  - component: {fileID: 382630638644796662}
   m_Layer: 0
   m_Name: IndustrialBuilding
   m_TagString: Untagged
@@ -443,11 +444,34 @@ MonoBehaviour:
     _gold: 5
     _food: 50
     _steel: 0
-    _woodCapacity: 0
-    _goldCapacity: 0
-    _foodCapacity: 0
-    _steelCapacity: 0
   _ui: {fileID: 2303437501986864218}
+  _buff:
+    _wood: 3
+    _gold: 3
+    _food: 1
+    _steel: 1
+  _withBuff: 1
+--- !u!65 &382630638644796662
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7414156779700350700}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.58, y: 0.56, z: 0.72}
+  m_Center: {x: 0, y: 0.28, z: 0}
 --- !u!1001 &1242586095981060413
 PrefabInstance:
   m_ObjectHideFlags: 0

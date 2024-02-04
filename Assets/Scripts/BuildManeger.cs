@@ -13,12 +13,12 @@ public class BuildManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        Cell.OnMouseDowned += Build;
+        Cell.MouseDowned += Build;
         ShopUI.OnBuildingChose += SetCurrentTypeBuilding;
     }
     private void OnDisable()
     {
-        Cell.OnMouseDowned -= Build;
+        Cell.MouseDowned -= Build;
         ShopUI.OnBuildingChose -= SetCurrentTypeBuilding;
     }
     private void Build(GameObject cellGameObject)
